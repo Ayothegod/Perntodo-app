@@ -10,8 +10,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />              
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=' text-4xl text-slate-600 flex items-center justify-center h-screen '>
-        Hello boss, whats going on
+      <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
+        <p>Time to cook</p>
+        <p className='text-lg text-purple-900'>first time trying nextjs api route system, lets build some api</p>
+        <p>stuff is hard, but lets cook</p>
       </main>
     </>
   )
