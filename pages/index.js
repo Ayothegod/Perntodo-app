@@ -4,8 +4,8 @@ import useSWR from 'swr'
 
 export default function Home() {
   const fetcher = (at) => fetch(at).then(res => res.json())
-  const { data, error, isLoading } = useSWR("http://localhost:3000/api/hello", fetcher)
-  console.log(data.user);
+  const { data, error, isLoading } = useSWR("http://localhost:3000/api/users", fetcher)
+  console.log(data);
 
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
@@ -18,12 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
-        <p>Time to cook</p>
-        <div>
-          <p>{data.name}</p>
-          <p>{data.age}</p>
-          <p>{data.who}</p>
-        </div>
+        <p>Time to cook client</p>
       </main>
     </>
   )

@@ -7,14 +7,13 @@ export default async function handler(req, res) {
     try {
       const allData = await pool.query("SELECT * FROM todo")
       res.json({
-        allData:allData.rows,
-        todoAmount:allData.rows.length})
+        allData:allData.rows})
     } catch (error) {
       res.json(error.message)
     }
   }
 
-  
+
   if(req.method == "POST"){
    try {
     const {description} = req.body
