@@ -19,6 +19,13 @@ export default function Home() {
       </Head>
       <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
         <p>Time to cook client</p>
+      <div>
+       {
+        data.allData.map(todo => (
+          <li key={todo.id}>{todo.description}</li>
+        ))
+       }
+      </div>
       </main>
     </>
   )
