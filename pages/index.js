@@ -1,7 +1,18 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
-  console.log("hello")
+  const [user,setUser] = useState("")
+  useEffect(() => {
+    const newUser = fetch("http://localhost:3000/api/hello")
+    .then(response => response.json())
+    .then(response => 
+      setUser(response))
+
+    
+    // console.log(newUser);
+  },[])
+  console.log(user);
   return (
     <>
       <Head>
