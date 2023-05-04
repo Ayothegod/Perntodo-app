@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 
 export default function Home() {
-  const [user,setUser] = useState("")
+  // const [user,setUser] = useState("")
   const fetcher = (at) => fetch(at).then(res => res.json())
   const { data, error, isLoading } = useSWR("http://localhost:3000/api/hello", fetcher)
   console.log({data});
 
-  // console.log(user);
-  // console.log({user});
+  if (error) return <div>failed to load</div>
+  if (isLoading) return <div>loading...</div>
+
   return (
     <>
       <Head>
@@ -21,9 +22,9 @@ export default function Home() {
       <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
         <p>Time to cook</p>
         <div>
-          {/* <p>{user.name}</p>
-          <p>{user.age}</p>
-          <p>{user.who}</p> */}
+          <p>{data.name}</p>
+          <p>{data.age}</p>
+          <p>{data.who}</p>
         </div>
       </main>
     </>
