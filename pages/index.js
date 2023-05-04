@@ -8,9 +8,6 @@ export default function Home() {
     .then(response => response.json())
     .then(response => 
       setUser(response))
-
-    
-    // console.log(newUser);
   },[])
   console.log(user);
   console.log({user});
@@ -24,8 +21,11 @@ export default function Home() {
       </Head>
       <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
         <p>Time to cook</p>
-        <p className='text-lg text-purple-900'>first time trying nextjs api route system, lets build some api</p>
-        <p>stuff is hard, but lets cook</p>
+        <div>
+          <p>{user.name}</p>
+          <p>{user.age}</p>
+          <p>{user.who}</p>
+        </div>
       </main>
     </>
   )
