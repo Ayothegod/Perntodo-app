@@ -32,7 +32,15 @@ export default async function handler(req, res) {
   if(req.method == "POST"){
    try {
     console.log(req.body)
-    res.json(req.body)
+    const {id,name,age,who} = req.body
+    const newUser = {id,name,age,who}
+    const addNewUser = users.push({id,name,age,who})
+    const allUsers = users
+    res.json({
+      newUser:newUser,
+      addNewUser:addNewUser,
+      allUsers:allUsers,
+    })
    } catch (error) {
     console.log(error.message);
    }
