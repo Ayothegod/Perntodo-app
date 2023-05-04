@@ -1,16 +1,14 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useSWR from 'swr'
 
 export default function Home() {
-  // const [user,setUser] = useState("")
   const fetcher = (at) => fetch(at).then(res => res.json())
   const { data, error, isLoading } = useSWR("http://localhost:3000/api/hello", fetcher)
-  console.log({data});
+  console.log(data.user);
 
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
-
   return (
     <>
       <Head>
