@@ -13,6 +13,7 @@ export default function Home() {
     // console.log(newUser);
   },[])
   console.log(user);
+  console.log({user});
   return (
     <>
       <Head>
