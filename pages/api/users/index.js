@@ -4,15 +4,22 @@ import { pool } from "../db"
 
 export default async function handler(req, res) {
   if(req.method == "GET"){
-    
+    try {
+      const allData = await pool.query("SELECT * FROM todo")
+      res.json({
+        allData:allData.rows,
+        todoAmount:allData.rows.length})
+    } catch (error) {
+      res.json(error.message)
+    }
   }
 
+  
   if(req.method == "POST"){
    try {
-    console.log(req.body)
     const {description} = req.body
-    const newTodo = await pool.query("INSERT INTO todo(description) VALUES($1)",[description]) 
-    res.json(newTodo)
+    const newTodo = await pool.query("INSERT INTO todo(description) VALUES($1) RETURNING * ",[description]) 
+    res.json(newTodo.rows[0])
 
    } catch (error) {
     console.log(error.message);
