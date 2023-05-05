@@ -9,7 +9,7 @@ const InputTodo = () => {
         e.preventDefault()
         try {
             if (description.length < 1) {
-                setNotodo('cant add todo!!!')
+                setNotodo('cannot add todo !!!')
             } else {
 
                 const body = { description }
