@@ -7,7 +7,6 @@ const ListTodo = () => {
     console.log(data);
 
     const deleteTodo = async(id) => {
-        console.log(id);
         try {
             const deleteTodo = await fetch(`http://localhost:3000/api/users/${id}`,{
                 method:"DELETE"
@@ -18,6 +17,8 @@ const ListTodo = () => {
             console.log(error.message);
         }
     }
+    //use a usestate in order to use filter for all todo excerpt the ones deleted instead of windows .liocation
+    //add a modal for the update to see all remaing text in too before edit
 
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
