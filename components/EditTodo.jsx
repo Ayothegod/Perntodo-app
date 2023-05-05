@@ -22,9 +22,6 @@ const EditTodo = ({modal, setModal,content,id}) => {
         }
     }
 
-    // localhost/api/users/55 
-    // http://localhost:3000/api/users/54
-
     return (
         <div className="fixed inset-0 w-screen bg-[rgba(0,0,0,0.5)] h-screen flex items-center justify-center">
             <div className="w-full sm:w-2/3 md:1/2 bg-white shadow-xl rounded-md p-4">
