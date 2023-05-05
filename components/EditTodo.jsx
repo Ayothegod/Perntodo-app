@@ -7,7 +7,7 @@ const EditTodo = ({modal, setModal,content,id}) => {
     const updateTodo = async() => {
         try {
             const response = await fetch(`http://localhost/api/users/${id}`,{
-                method:""
+                method:"PUT"
             })
         } catch (error) {
             console.log(error);
