@@ -6,6 +6,19 @@ const ListTodo = () => {
     const { data, error, isLoading } = useSWR("http://localhost:3000/api/users", fetcher)
     console.log(data);
 
+    const deleteTodo = async(id) => {
+        console.log(id);
+        try {
+            const deleteTodo = await fetch(`http://localhost:3000/api/users/${id}`,{
+                method:"DELETE"
+            } )
+            console.log(deleteTodo)
+            window.location = "/"
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     if (error) return <div>failed to load</div>
     if (isLoading) return <div>loading...</div>
     return (
@@ -17,7 +30,7 @@ const ListTodo = () => {
                             <li >{data.description}</li>
                             <div className='flex justify-between '>
                                 <button className='bg-purple-500 text-white rounded-md py-1 px-2 text-sm font-semibold'>Update</button>
-                                <button className='bg-red-600 text-white rounded-md py-1 px-2 text-sm font-semibold'>Delete</button>
+                                <button className='bg-red-600 text-white rounded-md py-1 px-2 text-sm font-semibold' onClick={() => deleteTodo(data.todo_id)}>Delete</button>
                             </div>
                         </div>
                     ))
