@@ -21,7 +21,7 @@ const IndTodo = ({ data }) => {
             <div className='border border-purple-400 p-4 rounded-md shadow-md space-y-4'>
                 <li >{data.description}</li>
                 <div className='flex justify-between '>
-                    <button className='bg-purple-500 text-white rounded-md py-1 px-2 text-sm font-semibold' onClick={() => setModal(!modal)} >openModal</button>
+                    <button className='bg-purple-500 text-white rounded-md py-1 px-2 text-sm font-semibold' onClick={() => setModal(!modal)} >Edit Todo</button>
 
                     <button className='bg-red-600 text-white rounded-md py-1 px-2 text-sm font-semibold' onClick={() => deleteTodo(data.todo_id)}>Delete</button>
                 </div>
