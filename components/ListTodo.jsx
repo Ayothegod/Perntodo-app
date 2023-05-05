@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import IndTodo from './IndTodo'
+import empty from "./assets/icons8-nothing-found-80.png"
+import Image from 'next/image'
 
 const ListTodo = () => {
     const fetcher = (at) => fetch(at).then(res => res.json())
@@ -22,8 +24,9 @@ const ListTodo = () => {
             <div>
                 {
                     data.length <= 0 &&
-                    <div className='flex items-center justify-center mt-20'>
-                        <p>No data to display</p>
+                    <div className='flex items-center justify-center mt-20 flex-col'>
+                        <Image src={empty} alt='empty'/>
+                        <p>No todo to display</p>
                     </div>
                 }
             </div>
