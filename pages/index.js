@@ -1,4 +1,5 @@
 import InputTodo from '@/components/InputTodo'
+import ListTodo from '@/components/ListTodo'
 import Head from 'next/head'
 import { useState } from 'react'
 import useSWR from 'swr'
@@ -23,6 +24,7 @@ export default function Home() {
           <section>
             <h1 className='text-center font-bold text-purple-700 mt-4 text-2xl'>Pern todo app</h1>
             <InputTodo/>
+            <ListTodo/>
           </section>
         </main>
       </main>
