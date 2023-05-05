@@ -1,3 +1,4 @@
+import InputTodo from '@/components/InputTodo'
 import Head from 'next/head'
 import { useState } from 'react'
 import useSWR from 'swr'
@@ -5,7 +6,7 @@ import useSWR from 'swr'
 export default function Home() {
   const fetcher = (at) => fetch(at).then(res => res.json())
   const { data, error, isLoading } = useSWR("http://localhost:3000/api/users", fetcher)
-  console.log(data);
+  // console.log(data);
 
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
@@ -17,15 +18,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />              
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=' text-4xl text-slate-600 flex items-center flex-col gap-4 px-8 justify-center h-screen '>
-        <p>Time to cook client</p>
-      <div>
-       {
-        data.allData.map(todo => (
-          <li key={todo.id}>{todo.description}</li>
-        ))
-       }
-      </div>
+      <main className='px-8 min-h-screen '>
+        <main className='max-w-[60rem] mx-auto'>
+          <section>
+            <h1 className='text-center font-bold text-purple-700 mt-4 text-2xl'>Pern todo app</h1>
+            <InputTodo/>
+          </section>
+        </main>
       </main>
     </>
   )
