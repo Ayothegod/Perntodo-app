@@ -30,7 +30,7 @@ const EditTodo = ({modal, setModal,content,id}) => {
             <div className="w-full sm:w-2/3 md:1/2 bg-white shadow-xl rounded-md p-4">
                 <p className="text-lg font-semibold text-purple-700">Edit Todo</p>
                 <div>
-                    <textarea name="" cols="30" rows="5" className="w-full border border-neutral-400 rounded" value={description} onChange={(e) => setDescription(e.target.value)}>
+                    <textarea name="" cols="30" rows="5" className="w-full border border-neutral-400 rounded my-4" value={description} onChange={(e) => setDescription(e.target.value)}>
                     </textarea>
                 </div>
                 <div className="text-right space-x-4 text-sm">
