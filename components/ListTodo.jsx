@@ -24,7 +24,7 @@ const ListTodo = () => {
     if (isLoading) return <div>loading...</div>
     return (
         <div>
-            <ul className='grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4'>
+            {/* <ul className='grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4'>
                 {
                     data.allData.map(data => (
                         <div key={data.todo_id} className='border border-purple-400 p-4 rounded-md shadow-md space-y-4'>
@@ -36,7 +36,7 @@ const ListTodo = () => {
                         </div>
                     ))
                 }
-            </ul>
+            </ul> */}
         </div>
     )
 }
