@@ -6,7 +6,11 @@ export default async function handler(req, res) {
   if(req.method == "GET"){
     try {
       const allData = await pool.query("SELECT * FROM todo")
-      res.json(allData.rows)
+      res.status(200).headers: ({
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    }).json(allData.rows)
     } catch (error) {
       res.json(error.message)
     }
