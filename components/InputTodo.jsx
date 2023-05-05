@@ -16,6 +16,7 @@ const InputTodo = () => {
                 body: JSON.stringify(body)
             })
             window.location = "/"
+            console.log(response);
         } catch (error) {
             console.log(error.message)
         }
