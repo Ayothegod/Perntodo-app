@@ -6,8 +6,7 @@ export default async function handler(req, res) {
   if(req.method == "GET"){
     try {
       const allData = await pool.query("SELECT * FROM todo")
-      res.json({
-        allData:allData.rows})
+      res.json(allData.rows)
     } catch (error) {
       res.json(error.message)
     }
