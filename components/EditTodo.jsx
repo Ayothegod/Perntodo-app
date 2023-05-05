@@ -5,10 +5,17 @@ const EditTodo = ({modal, setModal,content,id}) => {
     const [modalContent,setModalContent] = useState(content)
 
     const updateTodo = async() => {
+        // e.preventDefault()
         try {
-            const response = await fetch(`http://localhost/api/users/${id}`,{
-                method:"PUT"
+            const body = {modalContent}
+            const response = await fetch(`http://localhost:3000/api/users/${id}`,{
+                method:"PUT",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(modalContent)
             })
+            console.log(response);
         } catch (error) {
             console.log(error);
         }
