@@ -6,7 +6,7 @@ const IndTodo = ({ data }) => {
 
     const deleteTodo = async (id) => {
         try {
-            const deleteTodo = await fetch(`http://localhost:3000/api/users/${id}`, {
+            const deleteTodo = await fetch(`/api/users/${id}`, {
                 method: "DELETE"
             })
             window.location = "/"
