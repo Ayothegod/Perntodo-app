@@ -5,6 +5,8 @@ const InputTodo = () => {
     // lets touch this code again
     const [description, setDescription] = useState("")
     const [notodo,setNotodo] = useState("")
+    const [clientError,setClientError] = useState("")
+    const [clientSucess,setClientSucess] = useState("")
 
     const submitTodo = async (e) => {
         e.preventDefault()
@@ -21,11 +23,10 @@ const InputTodo = () => {
                     },
                     body: JSON.stringify(body)
                 })
-                window.location = "/"
-                // console.log(response);
+                setClientSucess("done")
             }
         } catch (error) {
-            console.log(error.message)
+            setClientError(error.message)
         }
     }
 
@@ -35,6 +36,8 @@ const InputTodo = () => {
             <input type="text" name="text" className="border border-neutral-400 rounded-md outline-none px-2 py-1 w-4/5 " value={description} onChange={e => setDescription(e.target.value)} />
             <button className="bg-purple-700 px-2 py-1 text-white rounded-md" onClick={submitTodo}>Add Todo</button>
         </div>
+        {clientError && <p>{clientError}</p>}
+        {clientSucess && <p>{clientSucess}</p>}
             <p className="text-center text-red-600 font-bold">{notodo}</p>
         </>
     )

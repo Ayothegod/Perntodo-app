@@ -1,8 +1,10 @@
 import { useState } from "react"
 
 const EditTodo = ({modal, setModal,content,id}) => {
-    console.log(id);
     const [description,setDescription] = useState(content)
+    
+    const [clientError,setClientError] = useState("")
+    const [clientSucess,setClientSucess] = useState("")
 
     const updateTodo = async() => {
         // e.preventDefault()
@@ -15,10 +17,11 @@ const EditTodo = ({modal, setModal,content,id}) => {
                 },
                 body: JSON.stringify(body)
             })
+            setClientSucess("done")
             window.location = "/"
-            console.log(response);
         } catch (error) {
-            console.log(error);
+            setClientError(error.message)
+
         }
     }
 
@@ -35,6 +38,8 @@ const EditTodo = ({modal, setModal,content,id}) => {
                     <button className="bg-purple-700 text-white py-1 px-2 rounded-md" onClick={() => updateTodo()}>Edit</button>
                 </div>
             </div>
+            {clientError && <p>{clientError}</p>}
+        {clientSucess && <p>{clientSucess}</p>}
         </div>
     )
 }

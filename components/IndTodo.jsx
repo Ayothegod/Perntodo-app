@@ -4,14 +4,18 @@ import EditTodo from './EditTodo'
 const IndTodo = ({ data }) => {
     const [modal, setModal] = useState(false)
 
+    const [clientError, setClientError] = useState("")
+    const [clientSucess, setClientSucess] = useState("")
+
     const deleteTodo = async (id) => {
         try {
             const deleteTodo = await fetch(`/api/users/${id}`, {
                 method: "DELETE"
             })
-            window.location = "/"
+            setClientSucess("done")
         } catch (error) {
-            console.log(error.message);
+            setClientError(error.message)
+
         }
     }
 
@@ -29,9 +33,11 @@ const IndTodo = ({ data }) => {
 
             {modal && (
                 <div>
-                    <EditTodo id={data.todo_id} setModal={setModal} modal={modal} content={data.description}/>
+                    <EditTodo id={data.todo_id} setModal={setModal} modal={modal} content={data.description} />
                 </div>
             )}
+            {clientError && <p>{clientError}</p>}
+            {clientSucess && <p>{clientSucess}</p>}
         </div>
     )
 }
