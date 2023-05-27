@@ -14,18 +14,18 @@ const ListTodo = () => {
     return (
         <div>
             <ul className='grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4'>
-                {/* {
+                {
                     data.map(data => (
-                            <IndTodo key={data.todo_id} data={data}/>
+                        <IndTodo key={data.todo_id} data={data} />
                     ))
-                } */}
+                }
             </ul>
 
             <div>
                 {
                     data.length <= 0 &&
                     <div className='flex items-center justify-center mt-20 flex-col'>
-                        <Image src={empty} alt='empty'/>
+                        <Image src={empty} alt='empty' />
                         <p>No todo to display</p>
                     </div>
                 }
