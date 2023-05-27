@@ -18,7 +18,7 @@ const EditTodo = ({modal, setModal,content,id}) => {
                 body: JSON.stringify(body)
             })
             setClientSucess("done")
-            window.location = "/"
+            // window.location = "/"
         } catch (error) {
             setClientError(error.message)
 
