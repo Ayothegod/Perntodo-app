@@ -5,9 +5,6 @@ import { useState } from 'react'
 import useSWR from 'swr'
 
 export default function Home() {
-  // const fetcher = (at) => fetch(at).then(res => res.json())
-  // const { data, error, isLoading } = useSWR("http://localhost:3000/api/users", fetcher)
-  // // console.log(data);
 
   return (
     <>
